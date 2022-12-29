@@ -23,9 +23,9 @@ class TestLogin:
         #Нажал кнопку "Войти"
         driver.find_element(*TestLocatorsLoginPage.BUTTON_ENTER).click()
         #Дождался загрузки страницы
-        WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//div/main/section[2]/div/button")))
+        WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//button[text()='Оформить заказ']")))
         #Проверил что авторизован
-        assert driver.find_element(By.XPATH, ".//div/main/section[2]/div/button").text == "Оформить заказ"
+        assert driver.find_element(By.XPATH, ".//button[text()='Оформить заказ']").text == "Оформить заказ"
         driver.quit()
 
     def test_login_by_personal_area(self): # Проверка входа по кнопке «Личный кабинет»
@@ -52,7 +52,7 @@ class TestLogin:
         driver.find_element(*TestLocatorsLoginPage.FIELD_PASSWORD).send_keys("Александр")
         driver.find_element(*TestLocatorsLoginPage.BUTTON_ENTER).click()
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//div/main/section[2]/div/button")))
-        assert driver.find_element(By.XPATH, ".//div/main/section[2]/div/button").text == "Оформить заказ"
+        assert driver.find_element(By.XPATH, ".//button[text()='Оформить заказ']").text == "Оформить заказ"
         driver.quit()
 
     def test_login_on_forgot_password_page(self): # Проверка входа через кнопку восстановления пароля
@@ -64,6 +64,6 @@ class TestLogin:
         driver.find_element(*TestLocatorsLoginPage.FIELD_EMAIL).send_keys("Александр_Каленов_05_000@yandex.ru")
         driver.find_element(*TestLocatorsLoginPage.FIELD_PASSWORD).send_keys("Александр")
         driver.find_element(*TestLocatorsLoginPage.BUTTON_ENTER).click()
-        WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//div/main/section[2]/div/button")))
-        assert driver.find_element(By.XPATH, ".//div/main/section[2]/div/button").text == "Оформить заказ"
+        WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//button[text()='Оформить заказ']")))
+        assert driver.find_element(By.XPATH, ".//button[text()='Оформить заказ']").text == "Оформить заказ"
         driver.quit()

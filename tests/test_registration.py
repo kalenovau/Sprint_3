@@ -16,8 +16,8 @@ class TestRegistraion:
         driver.find_element(*TestLocatorsMainPage.LOGIN_BUTTON).click()
         driver.find_element(*TestLocatorsLoginPage.LINK_REGISTRATION).click()
         driver.find_element(By.NAME, "name").send_keys("Sid")
-        driver.find_element(By.XPATH, ".//div/main/div/form/fieldset[2]/div/div/input").send_keys("Sid_05_000@yandex.ru")
-        driver.find_element(By.NAME, "Пароль").send_keys("Sid")
+        driver.find_element(By.XPATH, '//label[.="Email"]/parent::*/input').send_keys("Sid_05_000@yandex.ru")
+        driver.find_element(By.NAME, "Пароль").send_keys("SidSidSid1")
         driver.find_element(*TestLocatorsRegistrationPage.BUTTON_REGISTRATION).click()
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "button_button__33qZ0")))
         assert '/login' in driver.current_url
@@ -31,7 +31,7 @@ class TestRegistraion:
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocatorsLoginPage.LINK_REGISTRATION))
         driver.find_element(*TestLocatorsLoginPage.LINK_REGISTRATION).click()
         driver.find_element(By.NAME, "name").send_keys("w")
-        driver.find_element(By.XPATH, ".//div/main/div/form/fieldset[2]/div/div/input").send_keys("www@yandex.ru")
+        driver.find_element(By.XPATH, '//label[.="Email"]/parent::*/input').send_keys("www@yandex.ru")
         driver.find_element(By.NAME, "Пароль").send_keys("w")
         driver.find_element(*TestLocatorsRegistrationPage.BUTTON_REGISTRATION).click()
         error = driver.find_element(*TestLocatorsRegistrationPage.INVALID_PASSWORD).text

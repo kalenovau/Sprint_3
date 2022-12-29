@@ -18,7 +18,7 @@ class TestLogin:
         driver.find_element(*TestLocatorsLoginPage.FIELD_EMAIL).send_keys("Александр_Каленов_05_000@yandex.ru")
         driver.find_element(*TestLocatorsLoginPage.FIELD_PASSWORD).send_keys("Александр")
         driver.find_element(*TestLocatorsLoginPage.BUTTON_ENTER).click()
-        WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//div/main/section[2]/div/button")))
+        WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, ".//button[text()='Оформить заказ']")))
         driver.find_element(*TestLocatorsMainPage.PERSONAL_ACCOUNT).click()
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocatorsProfile.BUTTON_EXIT))
         assert driver.find_element(By.XPATH, ".//div/main/div/nav/p").text == "В этом разделе вы можете изменить свои персональные данные"
