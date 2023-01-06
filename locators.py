@@ -34,8 +34,6 @@ class TestLocatorsRegistrationPage:
 class TestLocatorsLoginPage:
     # Поле ввода Email
     FIELD_EMAIL = (By.XPATH, "//label[.='Email']/parent::*/input")
-
-    #FIELD_EMAIL = (By.XPATH, ".//div/main/div/form/fieldset[1]/div/div/input")
     # Поле ввода пароля
     FIELD_PASSWORD = (By.XPATH, ".//input[@name='Пароль']")
     # Кнопка "Войти" на странице авторизации

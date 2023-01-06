@@ -5,12 +5,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-import time
 
 
 class TestLogin:
 
-    def test_open_account_page(self):  # Проверка входа в личный кабинет
+    def test_open_account_page(driver):  # Проверка входа в личный кабинет
         driver = webdriver.Chrome()
         driver.get("https://stellarburgers.nomoreparties.site/")
         driver.find_element(*TestLocatorsMainPage.LOGIN_BUTTON).click()
@@ -22,4 +21,3 @@ class TestLogin:
         driver.find_element(*TestLocatorsMainPage.PERSONAL_ACCOUNT).click()
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located(TestLocatorsProfile.BUTTON_EXIT))
         assert driver.find_element(By.XPATH, ".//div/main/div/nav/p").text == "В этом разделе вы можете изменить свои персональные данные"
-        driver.quit()
