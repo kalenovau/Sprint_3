@@ -3,6 +3,8 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+import links
+
 
 @pytest.fixture(scope= 'function')
 def driver():
